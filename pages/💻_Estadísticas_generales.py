@@ -42,7 +42,7 @@ except Exception as e:
 
 # Barra lateral para los filtros
 with st.sidebar:
-    st.header("Filtros")
+    st.header("🛠️ Filtros")
 
     # Filtro por rango de año con slider
     años_unicos = df['Anio'].unique()
