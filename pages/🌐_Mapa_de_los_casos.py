@@ -16,6 +16,8 @@ except Exception as e:
     st.error(f"Ocurrió un error al cargar los datos: {e}")
     st.stop()
 
+st.subheader("Dataset Completo:")
+st.dataframe(df)
 # Barra lateral para los filtros
 with st.sidebar:
     st.header("Filtros")

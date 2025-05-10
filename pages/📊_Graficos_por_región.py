@@ -39,6 +39,9 @@ except Exception as e:
     st.error(f"Ocurrió un error al cargar los datos: {e}")
     st.stop()
 
+
+st.subheader("Dataset Completo:")
+st.dataframe(df)
 # Barra lateral para los filtros
 with st.sidebar:
     st.header("Filtros")
@@ -66,9 +69,21 @@ if region_seleccionada:
 if codigo_region_seleccionado:
     df_filtrado = df_filtrado[df_filtrado['CodigoRegion'].isin(codigo_region_seleccionado)]
 
+try:
+    df = pd.read_csv('static/datasets/suicidios_antioquia.csv')
+except FileNotFoundError:
+    st.error("Error: No se encontró el archivo de datos. Asegúrate de que la ruta sea correcta.")
+    st.stop()
+except Exception as e:
+    st.error(f"Ocurrió un error al cargar los datos: {e}")
+    st.stop()
+
 
 # Visualización: Cantidad de Suicidios por Región (Filtrado)
 st.subheader("Cantidad de Suicidios por Región (Filtrado):")
 conteo_por_region = df_filtrado.groupby('NombreRegion')['NumeroCasos'].sum().reset_index()
 fig_region = px.bar(conteo_por_region, x='NombreRegion', y='NumeroCasos', title='Total de Suicidios por Región')
 st.plotly_chart(fig_region)
+
+st.subheader("Datos Filtrados:")
+st.dataframe(df_filtrado)
