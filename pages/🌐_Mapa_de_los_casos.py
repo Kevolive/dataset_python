@@ -3,6 +3,30 @@ import pandas as pd
 import plotly.express as px
 import pydeck as pdk
 
+
+st.markdown(f"""
+    <style>
+        /* Cambiar el fondo del sidebar */
+        [data-testid="stSidebar"] {{
+            background-color: #A9D6E5; /* Azul pastel */
+            color: #000000; /* Texto negro */
+        }}
+        /* Opcional: Cambiar el color de los textos dentro del sidebar */
+        [data-testid="stSidebar"] .css-1d391kg {{
+            color: #000000; /* Texto negro */
+        }}
+         /* Cambiar el fondo del sidebar */
+        [data-testid="stSidebar"] {{
+            background-color: #A9D6E5; /* Azul pastel */
+            color: #000000; /* Texto negro */
+        }}
+        /* Cambiar el texto del sidebar a negrita */
+        [data-testid="stSidebar"] * {{
+            font-weight: bold; /* Texto en negrita */
+        }}
+            
+    </style>
+""", unsafe_allow_html=True)
 # Título principal de la aplicación
 st.title("Análisis Interactivo de Suicidios en Antioquia (2005-2021)")
 
